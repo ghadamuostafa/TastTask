@@ -14,14 +14,14 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
          DB::table('users')->insert([
             'name' => Str::random(10),
-            'email' => Str::random(10).'admin@admin.com',
+            'email' =>'admin@admin.com',
             'password' => Hash::make('password'),
         ]);
 
             DB::table('company')->insert([
             'name' => Str::random(10),
-            'email' => Str::random(10).'admin@admin.com',
-            'logo' => Str::random('5'),
+            'email' => 'admin@admin.com',
+            'logo' => Str::random('25'),
              'websites' => Str::random('10'),
         ]);
         
@@ -29,13 +29,15 @@ class DatabaseSeeder extends Seeder
   DB::table('employees')->insert([
             'frist_name' => Str::random(10),
             'last_name' => Str::random(10),
-             'email' => Str::random(10).'admin@admin.com',
-            'company_id' =>'1',
+             'email' => 'admin@admin.com',
+             'company_id' =>'1',
              'phone' =>Str::random(11),
         ]);
         
 
         factory(App\User::class, 50)->create();
+          factory(App\company::class, 15)->create();
+           factory(App\employees::class, 15)->create();
        
        
       
